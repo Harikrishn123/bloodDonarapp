@@ -1,0 +1,87 @@
+<!-- <div class="container">
+    <h1>Estimates between the years 1950 and 1980 (in thousands)</h1>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Sl.No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let response of responseData; let i = index">
+            <td>
+              <span>
+                <span class="fi fi-af"></span>
+              </span>
+              <span>{{i + 1}}</span>
+            </td>
+            <td>{{response.name}}</td>
+            <td>{{response.age}}</td>
+            <button (click)="editButtonOnclick(response)" style="font-size:24px">Edit<i class="fa fa-edit"></i></button>
+          </tr>
+          <tr>
+            <td>
+              <span>
+                <span class="fi fi-al"></span>
+              </span>
+              <span>Albania</span>
+            </td>
+            <td>1,228</td>
+            <td>1,393</td>
+            <td>2.56</td>
+            <td>1,624</td>
+            <td>3.12</td>
+            <td>1,884</td>
+            <td>3.02</td>
+            <td>2,157</td>
+            <td>2.74</td>
+            <td>2,402</td>
+            <td>2.17</td>
+            <td>2,672</td>
+            <td>2.16</td>
+          </tr>
+          <tr>
+            <td>
+              <span>
+                <span class="fi fi-dz"></span>
+              </span>
+              <span>Algeria</span>
+            </td>
+            <td>8,893</td>
+            <td>9,842</td>
+            <td>2.05</td>
+            <td>10,910</td>
+            <td>2.08</td>
+            <td>11,964</td>
+            <td>1.86</td>
+            <td>13,932</td>
+            <td>3.09</td>
+            <td>16,141</td>
+            <td>2.99</td>
+            <td>18,807</td>
+            <td>3.10</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>    
+  </div> -->
+  
+  <!-- <table datatable [dtOptions]="dtOptions"  class="row-border hover"></table> -->
+<section style="padding: 20px;height: 100%;">
+  <ngx-table [configuration]="configuration" style="height: 100%;padding: 10px;"
+           [data]="data"
+           [columns]="columns">
+</ngx-table>
+</section>
+<ng-template #actionEdit let-row let-rowIndex="rowIndex">
+  <div class="btn btn-primary" (click)="edit(rowIndex)">Edit</div>
+  <!-- <div *ngIf="editRow === rowIndex" class="btn" (click)="update()">Save</div> -->
+</ng-template>
+<ng-template #actionDelete let-row let-rowIndex="rowIndex">
+  <div class="btn btn-primary" (click)="deleteRow(rowIndex)">Delete</div> 
+  <!-- <div *ngIf="editRow === rowIndex" class="btn" (click)="update()">Save</div> -->
+</ng-template>

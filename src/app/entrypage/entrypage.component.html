@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="">
+</head>
+
+<body>
+  <div class="main">
+    <h1>form</h1>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+      <label for="bloodtype">Blood type:</label>
+      <input type="text" [(ngModel)]="dataObject['bloodtype']" id="bloodtype" name="bloodtype" placeholder="Enter Blood type" formControlName="bloodtype">
+      <label for="fullname">First Name:</label>
+      <input type="text" [(ngModel)]="dataObject['fullname']" id="fullname" name="fullname" placeholder="Enter your full name" formControlName="fullname">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" [(ngModel)]="dataObject['birthdate']" id="birthdate" name="birthdate" placeholder="Enter your DOB" formControlName="birthdate">
+      <label for="gender">Gender:</label>
+      <select [(ngModel)]="dataObject['gender']" id="gender" name="gender" formControlName="gender">
+        <option *ngFor="let item of gender" [value]="item.value">{{item['title']}}</option>
+      </select>
+      <label for="address">Address:</label>
+      <input type="text" [(ngModel)]="dataObject['address']" id="address" name="address" placeholder="Enter your Address" formControlName="address">
+      <label for="">Have you donate previuosly:</label>
+      <select id="haveyoudonatepreviuosly" [(ngModel)]="dataObject['haveyoudonatepreviuosly']" name="haveyoudonatepreviuosly" formControlName="haveyoudonatepreviuosly">
+        <option  *ngFor="let item of haveyoudonatepreviuosly" [value]="item.value" >{{item['title']}}</option>
+      </select>
+      <label for="Areyouapatient">Are you a patient:</label>
+      <select [(ngModel)]="dataObject['Areyouapatient']" id="Areyouapatient" name="Areyouapatient" formControlName="Areyouapatient">
+        <option *ngFor="let item of areyouapatient" [value]="item.value">{{item['title']}}</option>
+      </select>
+      <!-- <label for="mobile">Contact:</label>
+      <input type="number" id="mobile" name="mobile" placeholder="Enter your Mobile Number" required maxlength="10" [(ngModel)]="dataObject['fullname']"> -->
+      <div class="wrap">
+        <button>
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
