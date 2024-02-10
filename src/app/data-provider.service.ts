@@ -14,7 +14,7 @@ export class DataProviderService {
   }
   async getData() {
     return new Promise((resolve, reject) => {
-      this.http.get('https://crudcrud.com/api/1078d97de99745abbf2a305b5d61ee40/create')
+      this.http.get('https://crudcrud.com/api/b7208a30c58d4ddda163192fecaa0c00/create')
         .subscribe((data: any) => {
           resolve(data)
         }, (error: any) => {
@@ -26,7 +26,7 @@ export class DataProviderService {
 
   postData(postData: any) {
     return new Promise((resolve, reject) => {
-      this.http.post('https://crudcrud.com/api/1078d97de99745abbf2a305b5d61ee40/create', postData)
+      this.http.post('https://crudcrud.com/api/b7208a30c58d4ddda163192fecaa0c00/create', postData)
         .subscribe((response: any) => {
           resolve(response);
         }, (error: any) => {
@@ -38,7 +38,7 @@ export class DataProviderService {
     let body = JSON.parse(JSON.stringify(postData))
     delete body["_id"]
     return new Promise((resolve, reject) => {
-      this.http.put('https://crudcrud.com/api/1078d97de99745abbf2a305b5d61ee40/create/' + id, body)
+      this.http.put('https://crudcrud.com/api/b7208a30c58d4ddda163192fecaa0c00/create/' + id, body)
         .subscribe((response: any) => {
           resolve(response);
         }, (error: any) => {
@@ -47,12 +47,12 @@ export class DataProviderService {
     })
   }
   deleteData(id) {
-    return this.http.delete('https://crudcrud.com/api/1078d97de99745abbf2a305b5d61ee40/create/' + id)
+    return this.http.delete('https://crudcrud.com/api/b7208a30c58d4ddda163192fecaa0c00/create/' + id)
 
   }
   registerData(registerData: any) {
     return new Promise((resolve, reject) => {
-      this.http.post('https://crudcrud.com/api/1078d97de99745abbf2a305b5d61ee40/register', registerData)
+      this.http.post('https://crudcrud.com/api/b7208a30c58d4ddda163192fecaa0c00/register', registerData)
         .subscribe((response: any) => {
           resolve(response);
         }, (error: any) => {
@@ -62,7 +62,7 @@ export class DataProviderService {
   }
   async getRegisterData() {
     return new Promise((resolve, reject) => {
-      this.http.get('https://crudcrud.com/api/1078d97de99745abbf2a305b5d61ee40/register')
+      this.http.get('https://crudcrud.com/api/b7208a30c58d4ddda163192fecaa0c00/register')
         .subscribe((data: any) => {
           resolve(data)
         }, (error: any) => {
