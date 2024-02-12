@@ -1,13 +1,12 @@
 <div class="container">
     <div class="card">
-      <h2>Login</h2>
+      <h2>Register</h2>
       <form>
         <input type="text" [(ngModel)]="loggedUserData['username']" id="username" name="username" placeholder="Username" required>
         <input type="text" [(ngModel)]="loggedUserData['email']" id="email" name="email" placeholder="email" required>
         <input type="password" [(ngModel)]="loggedUserData['password']" id="password" name="password" placeholder="Password" required>
-        <button (click)="userLogin()" type="submit">Register</button>
-        <!-- <span style="padding-left: 135px">Move to user login</span> -->
-        <button style ="margin: 10px;" (click)="backToLoginPage()" type="submit">Back to login</button>
+        <button style ="margin-bottom: 10px;" (click)="userLogin()" type="submit">Register</button>
+        <button (click)="backToLoginPage()" type="submit">Back to login</button>
       </form>
     </div>
   </div>

@@ -18,22 +18,30 @@ export class LoginpageComponent {
       password : null
     }
   }
-  userLogin() {
+  async userLogin() {
     let loggedUserStatus
-    console.log(this.loggedUserData)
-    this.dataProvider.getRegisterData().then((res: any) => {
-      console.log(res);
-      loggedUserStatus = res.filter(e => {
-        return e.username === this.loggedUserData['username'] && e.password === this.loggedUserData['password']
-
+    if(this.loggedUserData['username'] !== null && this.loggedUserData['password'] !== null && this.loggedUserData['username'] !== "" && this.loggedUserData['password'] !== ""){
+      await this.dataProvider.getRegisterData().then((res: any) => {
+        console.log(res);
+        loggedUserStatus = res.filter(e => {
+          return e.username === this.loggedUserData['username'] && e.password === this.loggedUserData['password']  
+        })
+        localStorage.setItem('user', loggedUserStatus)
+        if (loggedUserStatus.length > 0 && loggedUserStatus[0]['_id'].length > 0) {
+          this.router.navigateByUrl("productlist")
+        } else{
+          alert("Pls register your user")
+        }
       })
-      localStorage.setItem('user', loggedUserStatus)
-      if (loggedUserStatus.length > 0 && loggedUserStatus[0]['_id'].length > 0) {
-        this.router.navigateByUrl("productlist")
-      } else{
-        alert("Pls register your user")
+    } else {
+      if ((this.loggedUserData['username'] === null || this.loggedUserData['username'] === "") && this.loggedUserData['password'] !== null) {
+        alert("Kindly Enter the User name")
+      } else if (this.loggedUserData['username'] !== null && (this.loggedUserData['password'] === null || this.loggedUserData['password'] === "")) {
+        alert("Kindly Enter the password")
+      } else {
+        alert("Kindly Enter the User name and password")
       }
-    })
+    }
   }
   isPageFromProduct(){
     this.isUserLoggedIn = false

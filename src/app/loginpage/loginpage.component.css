@@ -9,10 +9,10 @@ body {
     color: #333;
   }
   
-  .container {
+  /* .container {
     width: 100%;
     max-width: 400px;
-  }
+  } */
   
   .card {
     width: 100%;
@@ -20,6 +20,11 @@ body {
     padding: 20px;
     border-radius: 12px; /* Border radius card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 40%;
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
   }
   
   h2 {
@@ -59,5 +64,17 @@ body {
   
   button:hover {
     background-color: #ff6600; /* Warna button saat hover */
+  }
+  /* .container  {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  } */
+  
+  .container .row {
+    margin: 0 auto;
   }
   
